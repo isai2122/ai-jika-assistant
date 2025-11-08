@@ -1,0 +1,21 @@
+# Ignorar el directorio de construcción del frontend, ya que se maneja por separado
+frontend/build
+
+# Ignorar el directorio de dependencias de Node.js
+frontend/node_modules
+
+# Ignorar el directorio de dependencias de Python (se instalarán en Vercel)
+backend/venv
+
+# Ignorar archivos de prueba y datos de ejemplo
+*.pyc
+*.json
+*.md
+tests/
+uploads/
+backend_test.py
+backend_test_results.json
+document_analysis_test.py
+document_analysis_test_results.json
+premium_account_test.py
+test_result.md
