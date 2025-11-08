@@ -1,0 +1,300 @@
+{
+  "timestamp": "2025-11-01T23:11:54.036895",
+  "backend_url": "https://jika-taskmaster.preview.emergentagent.com",
+  "test_type": "document_analysis_error_handling",
+  "total_tests": 17,
+  "passed_tests": 16,
+  "failed_tests": 1,
+  "success_rate": 94.11764705882352,
+  "test_details": [
+    {
+      "name": "Create free account for testing",
+      "success": true,
+      "details": "Account created: free_test_1762038710@example.com",
+      "response_data": {
+        "email": "free_test_1762038710@example.com",
+        "plan": "free"
+      }
+    },
+    {
+      "name": "Verify account has free plan",
+      "success": true,
+      "details": "Plan: free",
+      "response_data": {
+        "plan": "free"
+      }
+    },
+    {
+      "name": "First document analysis (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "filename": "test_document.txt",
+        "file_type": ".txt",
+        "size": 322,
+        "analysis": "1. **Resumen ejecutivo**: El documento es una gu\u00eda para gestionar tareas pendientes y recopila informaci\u00f3n clave para un proyecto en curso. Se detallan acciones espec\u00edficas junto con datos importantes como presupuestos y fechas l\u00edmite.\n\n2. **Puntos clave**:\n   - Se deben completar tres tareas urgentes: llamar al cliente, enviar un reporte, y revisar un presupuesto.\n   - El presupuesto asignado actualmente es de $0,000.\n   - Juan P\u00e9rez es el responsable del proyecto.\n   - La fecha l\u00edmite para las tareas es el 15 de diciembre de 2024.\n\n3. **Tareas o acciones detectadas**:\n   - Llamar al cliente ma\u00f1ana a las 10:00 AM.\n   - Enviar el reporte del proyecto antes del viernes.\n   - Revisar el presupuesto para el primer trimestre de 2024.\n\n4. **Informaci\u00f3n importante**:\n   - Presupuesto asignado: 0,000.\n   - Responsable: Juan P\u00e9rez.\n   - Fecha l\u00edmite para las tareas: 15 de diciembre de 2024.",
+        "extracted_text_length": 317
+      }
+    },
+    {
+      "name": "Second analysis returns 403 (not 500)",
+      "success": true,
+      "details": "Status: 403, Expected: 403",
+      "response_data": {
+        "detail": "L\u00edmite de 1 an\u00e1lisis IA por d\u00eda alcanzado. Actualiza a Premium para an\u00e1lisis ilimitados."
+      }
+    },
+    {
+      "name": "Error message is correct for plan limits",
+      "success": true,
+      "details": "Message contains limit info: True",
+      "response_data": {
+        "message": "L\u00edmite de 1 an\u00e1lisis IA por d\u00eda alcanzado. Actualiza a Premium para an\u00e1lisis ilimitados."
+      }
+    },
+    {
+      "name": "Project upload 1/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "73280bd4-f270-4564-8c79-c86683e5c36c",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 0",
+          "description": "Test project number 0",
+          "file_name": "test_project_0.txt",
+          "file_path": "/app/uploads/dcf385a2-7e8a-4a52-820c-e066d18b5a95.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.336668+00:00",
+          "updated_date": "2025-11-01T23:11:53.336671+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 2/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "8ba35818-bec5-4153-8933-b446e62db997",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 1",
+          "description": "Test project number 1",
+          "file_name": "test_project_1.txt",
+          "file_path": "/app/uploads/8df5bda5-33ce-46fc-ae40-6a09584b1a37.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.414704+00:00",
+          "updated_date": "2025-11-01T23:11:53.414706+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 3/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "eb50aeb2-1c61-408a-b2c9-f712e1eb68da",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 2",
+          "description": "Test project number 2",
+          "file_name": "test_project_2.txt",
+          "file_path": "/app/uploads/b7b0c464-1bb3-4ec2-a07b-8ff1c137171e.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.455048+00:00",
+          "updated_date": "2025-11-01T23:11:53.455050+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 4/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "731592ea-cc7d-4b7c-bf26-dbcc9fd454b5",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 3",
+          "description": "Test project number 3",
+          "file_name": "test_project_3.txt",
+          "file_path": "/app/uploads/b79c81e2-5f92-4d8f-b225-e713ff44c382.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.491058+00:00",
+          "updated_date": "2025-11-01T23:11:53.491061+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 5/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "09b234e3-1cfa-44b1-b458-9a9bbac682e2",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 4",
+          "description": "Test project number 4",
+          "file_name": "test_project_4.txt",
+          "file_path": "/app/uploads/1e3dc4ec-70f6-43f9-9af8-873a18464cd7.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.528191+00:00",
+          "updated_date": "2025-11-01T23:11:53.528194+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 6/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "61855586-caa5-4558-8402-492b5d35ef16",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 5",
+          "description": "Test project number 5",
+          "file_name": "test_project_5.txt",
+          "file_path": "/app/uploads/ccea52e2-ef00-4e56-bd4d-0bc46584eb05.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.571026+00:00",
+          "updated_date": "2025-11-01T23:11:53.571028+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 7/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "ee754bd9-f039-4b1b-af9a-78aba4fa997d",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 6",
+          "description": "Test project number 6",
+          "file_name": "test_project_6.txt",
+          "file_path": "/app/uploads/d3f8a06c-c4d1-41d2-a98d-9768232865fc.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.612373+00:00",
+          "updated_date": "2025-11-01T23:11:53.612376+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 8/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "008dc605-c178-46e3-b8ac-a0d443d39144",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 7",
+          "description": "Test project number 7",
+          "file_name": "test_project_7.txt",
+          "file_path": "/app/uploads/fa3b82d4-7f06-40c8-b2d6-4ec52f1ee58a.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.648816+00:00",
+          "updated_date": "2025-11-01T23:11:53.648818+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 9/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "ab5252b4-a91e-4b3b-a4a5-8a209134b770",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 8",
+          "description": "Test project number 8",
+          "file_name": "test_project_8.txt",
+          "file_path": "/app/uploads/53fec656-c2ab-44d5-9b5a-1cb4258e6f7a.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.686895+00:00",
+          "updated_date": "2025-11-01T23:11:53.686898+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 10/10 (should succeed)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "message": "Proyecto subido exitosamente",
+        "project": {
+          "id": "3cbb1c27-b469-4de0-8490-fdc92e31ae90",
+          "user_id": "7ba309d9-45c1-493e-acfd-4133def689e1",
+          "name": "Test Project 9",
+          "description": "Test project number 9",
+          "file_name": "test_project_9.txt",
+          "file_path": "/app/uploads/d085af41-58df-4760-a335-19c98fc529e6.txt",
+          "file_size": 322,
+          "file_type": "text/plain",
+          "status": "active",
+          "created_date": "2025-11-01T23:11:53.726482+00:00",
+          "updated_date": "2025-11-01T23:11:53.726484+00:00",
+          "ai_analysis": null,
+          "tags": []
+        }
+      }
+    },
+    {
+      "name": "Project upload 11 (should fail with 403)",
+      "success": true,
+      "details": "Status: 403, Has limit message: True",
+      "response_data": {
+        "detail": "L\u00edmite de 10 proyectos alcanzado. Actualiza a Premium para proyectos ilimitados."
+      }
+    },
+    {
+      "name": "Login with premium account",
+      "success": false,
+      "details": "Could not login with premium account - may need correct password",
+      "response_data": null
+    }
+  ]
+}
