@@ -19,3 +19,6 @@ document_analysis_test.py
 document_analysis_test_results.json
 premium_account_test.py
 test_result.md
+
+# Ignorar el directorio completo del frontend, ya que el build se hace en el paso anterior
+frontend/
